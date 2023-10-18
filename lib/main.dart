@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inflab_website/home_page.dart';
+import 'package:inflab_website/team_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -14,7 +15,10 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: _m3Theme(),
       darkTheme: _m3Theme(brightness: Brightness.dark),
-      home: const HomePage(),
+      routes: {
+        '/': (context) => const HomePage(),
+        '/team': (context) => const TeamPage(),
+      },
     );
   }
 

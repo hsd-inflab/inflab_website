@@ -4,15 +4,11 @@ import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:inflab_website/constants.dart';
-import 'package:inflab_website/expandable_fab.dart';
+import 'package:inflab_website/header_lead.dart';
+import 'package:inflab_website/header_title.dart';
 
-import 'header_lead.dart';
-import 'header_title.dart';
-
-class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-  });
+class TeamPage extends StatelessWidget {
+  const TeamPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +16,9 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: toolBarHeight,
         leadingWidth: leadingWidth,
-        leading: const HeaderLead(),
+        leading: const HeaderLead(
+          insertBackButton: true,
+        ),
         title: const HeaderTitle(),
         actions: [
           Padding(
@@ -33,8 +31,8 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: padding, bottom: padding * 2),
             child: TextButton(
-              onPressed: () => Navigator.of(context).pushNamed('/team'),
-              child: const Text('Team'),
+              onPressed: () => Navigator.of(context).pushNamed('/'),
+              child: const Text('Home'),
             ),
           ),
         ],
@@ -45,26 +43,28 @@ class HomePage extends StatelessWidget {
           right: padding * 4,
           bottom: padding,
         ),
-        itemCount: linkItems.length,
+        itemCount: team.length,
         itemBuilder: (context, index) {
-          final snap = linkItems.entries.elementAt(index);
+          final e = team.entries.elementAt(index);
           return ListTile(
             contentPadding: kListTilePadding,
             shape: kListTileShape,
-            onTap: () => html.window.open(snap.key, ''),
-            leading: Padding(
+            onTap: e.value.$2 == null
+                ? null
+                : () => html.window.open(e.value.$2!, ''),
+            leading: const Padding(
               padding: kListIconPadding,
               child: Icon(
-                linkItems.entries.elementAt(index).value.$3,
+                TablerIcons.user,
                 color: Colors.red,
               ),
             ),
             title: Text(
-              snap.value.$1,
+              e.key,
               style: const TextStyle(fontSize: 15),
             ),
             subtitle: Text(
-              snap.value.$2,
+              e.value.$1,
             ),
           );
         },
@@ -73,25 +73,6 @@ class HomePage extends StatelessWidget {
             height: padding / 2,
           );
         },
-      ),
-      floatingActionButton: ExpandableFab(
-        distance: 112,
-        children: [
-          ActionButton(
-            onPressed: () => html.window.open(gitHub, ''),
-            icon: const Icon(
-              TablerIcons.brand_github,
-            ),
-          ),
-          ActionButton(
-            onPressed: () => html.window.open(eMail, ''),
-            icon: const Icon(TablerIcons.mail),
-          ),
-          ActionButton(
-            onPressed: () => html.window.open(discord, ''),
-            icon: const Icon(TablerIcons.brand_discord),
-          ),
-        ],
       ),
     );
   }
