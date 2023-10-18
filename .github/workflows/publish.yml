@@ -19,4 +19,4 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
           webRenderer: canvaskit
-          baseRef: /inflab_website/
+          baseHref: /inflab_website/
