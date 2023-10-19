@@ -52,20 +52,28 @@ class TeamPage extends StatelessWidget {
             onTap: e.value.$2 == null
                 ? null
                 : () => html.window.open(e.value.$2!, ''),
-            leading: const Padding(
-              padding: kListIconPadding,
-              child: Icon(
-                TablerIcons.user,
-                color: Colors.red,
+            leading: Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: CircleAvatar(
+                backgroundImage:
+                    e.value.$1 == null ? null : AssetImage(e.value.$1!),
+                child: e.value.$1 == null
+                    ? const Icon(
+                        TablerIcons.user,
+                        color: Colors.red,
+                      )
+                    : null,
               ),
             ),
             title: Text(
               e.key,
               style: const TextStyle(fontSize: 15),
             ),
-            subtitle: Text(
-              e.value.$1,
-            ),
+            subtitle: e.value.$3 == null
+                ? null
+                : Text(
+                    e.value.$3!,
+                  ),
           );
         },
         separatorBuilder: (BuildContext context, int index) {

@@ -16,14 +16,13 @@ class HeaderLead extends StatelessWidget {
       padding: const EdgeInsets.only(left: padding),
       child: CircleAvatar(
         child: Center(
-          child: insertBackButton
-              ? IconButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  icon: const Icon(TablerIcons.arrow_back))
-              : const Icon(
-                  TablerIcons.brain,
-                  size: 30,
-                ),
+          child: InkWell(
+            onTap: () => Navigator.of(context).maybePop(),
+            child: const Icon(
+              TablerIcons.brain,
+              size: 30,
+            ),
+          ),
         ),
       ),
     );

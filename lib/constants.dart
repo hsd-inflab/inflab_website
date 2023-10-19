@@ -50,23 +50,31 @@ final linkItems = <String, (String, String, IconData)>{
   // '': ('',''),
 };
 
-final team = <String, (String, String?)>{
-  'Pedram Nazari': (
-    'Prof. Dr.',
-    'https://ei.hs-duesseldorf.de/personen/nazari'
+final team = <String, (String?, String?, String?)>{
+  'Prof. Dr. Pedram Nazari': (
+    'assets/images/pedram.jpg',
+    'https://ei.hs-duesseldorf.de/personen/nazari',
+    'Professor für Software Engineering'
   ),
-  'Stephan Mondwurf ': (
-    'Prof. Dr.-Ing.',
-    'https://ei.hs-duesseldorf.de/personen/mondwurf'
+  'Prof. Dr.-Ing. Stephan Mondwurf ': (
+    'assets/images/mondwurf.jpg',
+    'https://ei.hs-duesseldorf.de/personen/mondwurf',
+    'Professor für Embedded Systeme'
   ),
-  'Wolfgang Lux ': (
-    'Prof. Dr. rer. nat.',
-    'https://ei.hs-duesseldorf.de/personen/lux'
+  'Prof. Dr. rer. nat. Wolfgang Lux ': (
+    'assets/images/wolfgang.jpeg',
+    'https://ei.hs-duesseldorf.de/personen/lux',
+    'Professor für Betriebssysteme'
   ),
-  'Oliver von Fragstein': ('M. Sc., wiss. Mitarbeiter', null),
-  'Frederik Feichtmeier': (
-    'B. Eng., wiss. Mitarbeiter',
-    'https://github.com/Feichtmeier'
+  'M. Sc. Oliver von Fragstein': (
+    'assets/images/oli.jpg',
+    'https://ei.hs-duesseldorf.de/personen/von-fragstein',
+    'Wissenschaftlicher Mitarbeiter'
   ),
-  'Michael Kosub': ('Mitarbeiter', null)
+  'B. Eng. Frederik Feichtmeier': (
+    'assets/images/fred.jpg',
+    'https://github.com/Feichtmeier',
+    'Wissenschaftlicher Mitarbeiter'
+  ),
+  'Michael Kosub': (null, null, 'Mitarbeiter')
 };
