@@ -6,6 +6,7 @@ import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:inflab_website/constants.dart';
 import 'package:inflab_website/header_lead.dart';
 import 'package:inflab_website/header_title.dart';
+import 'package:inflab_website/message_fab.dart';
 
 class TeamPage extends StatelessWidget {
   const TeamPage({super.key});
@@ -82,6 +83,7 @@ class TeamPage extends StatelessWidget {
           );
         },
       ),
+      floatingActionButton: const MessageFab(),
     );
   }
 }

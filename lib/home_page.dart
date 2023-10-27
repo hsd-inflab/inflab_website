@@ -2,12 +2,11 @@
 import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:inflab_website/constants.dart';
-import 'package:inflab_website/expandable_fab.dart';
 
 import 'header_lead.dart';
 import 'header_title.dart';
+import 'message_fab.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -74,25 +73,7 @@ class HomePage extends StatelessWidget {
           );
         },
       ),
-      floatingActionButton: ExpandableFab(
-        distance: 112,
-        children: [
-          ActionButton(
-            onPressed: () => html.window.open(gitHub, ''),
-            icon: const Icon(
-              TablerIcons.brand_github,
-            ),
-          ),
-          ActionButton(
-            onPressed: () => html.window.open(eMail, ''),
-            icon: const Icon(TablerIcons.mail),
-          ),
-          ActionButton(
-            onPressed: () => html.window.open(discord, ''),
-            icon: const Icon(TablerIcons.brand_discord),
-          ),
-        ],
-      ),
+      floatingActionButton: const MessageFab(),
     );
   }
 }
