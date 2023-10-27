@@ -1,3 +1,1 @@
-# inflab_website
-
-A new Flutter project.
+https://hsd-inflab.github.io/inflab_website/
