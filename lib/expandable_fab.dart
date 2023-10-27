@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-@immutable
 class ExpandableFab extends StatefulWidget {
   const ExpandableFab({
     super.key,

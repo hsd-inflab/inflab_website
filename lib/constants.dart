@@ -76,5 +76,5 @@ final team = <String, (String?, String?, String?)>{
     'https://github.com/Feichtmeier',
     'Wissenschaftlicher Mitarbeiter'
   ),
-  'Michael Kosub': (null, null, 'Mitarbeiter')
+  'Michael Kosub': (null, null, 'Mitarbeiter'),
 };

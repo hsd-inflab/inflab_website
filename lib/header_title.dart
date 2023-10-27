@@ -24,7 +24,7 @@ class HeaderTitle extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: theme.textTheme.headlineLarge
                 ?.copyWith(fontWeight: FontWeight.w100),
-          )
+          ),
         ],
       ),
     );
