@@ -1,9 +1,10 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+import 'package:universal_html/html.dart' as html;
 
 import 'package:flutter/material.dart';
 import 'package:inflab_website/constants.dart';
+import 'package:inflab_website/top_menu_entry.dart';
 
+import 'avatar_tile.dart';
 import 'header_lead.dart';
 import 'header_title.dart';
 import 'message_fab.dart';
@@ -22,48 +23,36 @@ class HomePage extends StatelessWidget {
         leading: const HeaderLead(),
         title: const HeaderTitle(),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: padding, bottom: padding * 2),
-            child: TextButton(
-              onPressed: () => html.window.open(gitHub, ''),
-              child: const Text('GitHub'),
-            ),
+          TopMenuEntry(
+            text: 'GitHub',
+            onPressed: () => html.window.open(gitHub, ''),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: padding, bottom: padding * 2),
-            child: TextButton(
-              onPressed: () => Navigator.of(context).pushNamed('/team'),
-              child: const Text('Team'),
-            ),
+          TopMenuEntry(
+            text: 'Team',
+            onPressed: () => Navigator.of(context).pushNamed('/team'),
           ),
         ],
       ),
       body: ListView.separated(
         padding: const EdgeInsets.only(
-          left: padding,
+          left: 15,
           right: padding * 4,
           bottom: padding,
         ),
         itemCount: linkItems.length,
         itemBuilder: (context, index) {
-          final snap = linkItems.entries.elementAt(index);
-          return ListTile(
-            contentPadding: kListTilePadding,
-            shape: kListTileShape,
-            onTap: () => html.window.open(snap.key, ''),
-            leading: Padding(
-              padding: kListIconPadding,
+          final e = linkItems.entries.elementAt(index);
+
+          return AvatarTile(
+            onPressed: e.key,
+            title: e.value.$1,
+            subTitle: e.value.$2,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 4),
               child: Icon(
                 linkItems.entries.elementAt(index).value.$3,
                 color: Colors.red,
               ),
-            ),
-            title: Text(
-              snap.value.$1,
-              style: const TextStyle(fontSize: 15),
-            ),
-            subtitle: Text(
-              snap.value.$2,
             ),
           );
         },

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:inflab_website/embedded_systems_page.dart';
+import 'package:inflab_website/globals.dart';
 import 'package:inflab_website/home_page.dart';
+import 'package:inflab_website/java_page.dart';
 import 'package:inflab_website/team_page.dart';
 
 void main() {
@@ -12,12 +15,15 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: _m3Theme(),
       darkTheme: _m3Theme(brightness: Brightness.dark),
       routes: {
         '/': (context) => const HomePage(),
         '/team': (context) => const TeamPage(),
+        '/java': (context) => const JavaPage(),
+        '/embedded': (context) => const EmbeddedSystemsPage(),
       },
     );
   }

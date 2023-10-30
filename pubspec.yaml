@@ -10,7 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_tabler_icons: ^1.2.0
-  yaru: ^1.1.0
+  universal_html: ^2.2.4
+
 
 dev_dependencies:
   flutter_test:
